@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+		targetNamespace="http://example.org/Aerolinea" 
+		xmlns:tns="http://example.org/Aerolinea" 
+		elementFormDefault="qualified">
+		
+		<element name="viajeRequest">
+          <complexType>
+            <sequence>
+              <element type="string" name="pasajero"/>
+              <element type="string" name="salida"/>
+              <element type="string" name="destino"/>
+              <element type="string" name="fecha"/>
+              <element type="string" name="hora"/>
+              <element type="int" name="asiento"/>
+              <element type="string" name="boleto"/>
+            </sequence>
+          </complexType>
+        </element>
+        <element name="viajeResponse">
+          <complexType>
+            <sequence>
+              <element type="string" name="supasajero"/>
+              <element type="string" name="susalida"/>
+              <element type="string" name="sudestino"/>
+              <element type="string" name="sufecha"/>
+              <element type="string" name="suhora"/>
+              <element type="int" name="susasiento"/>
+              <element type="string" name="suboleto"/>
+            </sequence>
+          </complexType>
+        </element>
+        <element name="confirmarRequest">
+          <complexType>
+            <sequence>
+              <element type="string" name="boleto"/>
+            </sequence>
+          </complexType>
+        </element>
+        <element name="confirmarResponse">
+          <complexType>
+            <sequence>
+              <element type="string" name="estatus"/>
+            </sequence>
+          </complexType>
+        </element>
+        <element name="cancelarRequest">
+          <complexType>
+            <sequence>
+              <element type="string" name="boleto"/>
+            </sequence>
+          </complexType>
+        </element>
+        <element name="cancelarResponse">
+          <complexType>
+            <sequence>
+              <element type="string" name="estatus"/>
+            </sequence>
+          </complexType>
+        </element>
+        
+</schema>

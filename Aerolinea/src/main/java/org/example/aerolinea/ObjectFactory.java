@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.2.7 
 // Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2020.03.23 a las 05:22:28 PM CST 
+// Generado el: 2020.03.31 a las 05:04:45 PM CST 
 //
 
 
@@ -37,51 +37,51 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ViajeRequest }
+     * Create an instance of {@link ReservarVueloResponse }
      * 
      */
-    public ViajeRequest createViajeRequest() {
-        return new ViajeRequest();
+    public ReservarVueloResponse createReservarVueloResponse() {
+        return new ReservarVueloResponse();
     }
 
     /**
-     * Create an instance of {@link CancelarRequest }
+     * Create an instance of {@link CancelarReservacionResponse }
      * 
      */
-    public CancelarRequest createCancelarRequest() {
-        return new CancelarRequest();
+    public CancelarReservacionResponse createCancelarReservacionResponse() {
+        return new CancelarReservacionResponse();
     }
 
     /**
-     * Create an instance of {@link CancelarResponse }
+     * Create an instance of {@link ModificarDatosRequest }
      * 
      */
-    public CancelarResponse createCancelarResponse() {
-        return new CancelarResponse();
+    public ModificarDatosRequest createModificarDatosRequest() {
+        return new ModificarDatosRequest();
     }
 
     /**
-     * Create an instance of {@link ViajeResponse }
+     * Create an instance of {@link ModificarDatosResponse }
      * 
      */
-    public ViajeResponse createViajeResponse() {
-        return new ViajeResponse();
+    public ModificarDatosResponse createModificarDatosResponse() {
+        return new ModificarDatosResponse();
     }
 
     /**
-     * Create an instance of {@link ConfirmarRequest }
+     * Create an instance of {@link CancelarReservacionRequest }
      * 
      */
-    public ConfirmarRequest createConfirmarRequest() {
-        return new ConfirmarRequest();
+    public CancelarReservacionRequest createCancelarReservacionRequest() {
+        return new CancelarReservacionRequest();
     }
 
     /**
-     * Create an instance of {@link ConfirmarResponse }
+     * Create an instance of {@link ReservarVueloRequest }
      * 
      */
-    public ConfirmarResponse createConfirmarResponse() {
-        return new ConfirmarResponse();
+    public ReservarVueloRequest createReservarVueloRequest() {
+        return new ReservarVueloRequest();
     }
 
 }

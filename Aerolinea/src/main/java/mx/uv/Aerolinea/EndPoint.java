@@ -6,13 +6,20 @@ import org.example.aerolinea.ModificarDatosRequest;
 import org.example.aerolinea.ModificarDatosResponse;
 import org.example.aerolinea.ReservarVueloRequest;
 import org.example.aerolinea.ReservarVueloResponse;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
+import mx.uv.Aerolinea.DTO.ReservarVuelo;
+import mx.uv.Aerolinea.Repositorio.IReservarVuelo;
+
 @Endpoint
 public class EndPoint {
+	
+	@Autowired
+	private IReservarVuelo iReservarVuelo;
 
 	@PayloadRoot(namespace = "http://www.example.org/Aerolinea", localPart = "CancelarReservacionRequest")
 	
@@ -44,6 +51,18 @@ public class EndPoint {
 		+ " La hora de salida de su vuelo es a las: " + peticion.getHora()
 		+ " Su asiento seleccionado es el: " + peticion.getAsiento()
 		+ " El numero de su boleto es: " + peticion.getBoleto());
+		
+		ReservarVuelo reservarVuelo = new ReservarVuelo();
+		reservarVuelo.setPasajero(peticion.getPasajero());
+		reservarVuelo.setSalida(peticion.getSalida());
+		reservarVuelo.setDestino(peticion.getDestino());
+		reservarVuelo.setFecha(peticion.getFecha());
+		reservarVuelo.setHora(peticion.getHora());
+		reservarVuelo.setAsiento(peticion.getAsiento());
+		reservarVuelo.setBoleto(peticion.getBoleto());
+		
+		iReservarVuelo.save(reservarVuelo);
+		
 		return respuesta;
 	}
 	

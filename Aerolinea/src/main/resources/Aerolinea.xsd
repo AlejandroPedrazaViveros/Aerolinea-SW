@@ -24,26 +24,6 @@
             </sequence>
           </complexType>
         </element>
-        <element name="ModificarDatosRequest">
-          <complexType>
-            <sequence>
-              <element type="string" name="pasajero"/>
-              <element type="string" name="salida"/>
-              <element type="string" name="destino"/>
-              <element type="string" name="fecha"/>
-              <element type="string" name="hora"/>
-              <element type="string" name="asiento"/>
-              <element type="int" name="boleto"/>
-            </sequence>
-          </complexType>
-        </element>
-        <element name="ModificarDatosResponse">
-          <complexType>
-            <sequence>
-              <element type="string" name="datosmodificados"/>
-            </sequence>
-          </complexType>
-        </element>
         <element name="CancelarReservacionRequest">
           <complexType>
             <sequence>

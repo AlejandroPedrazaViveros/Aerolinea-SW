@@ -20,30 +20,13 @@ public class EndPoint {
 	
 	@Autowired
 	private IReservarVuelo iReservarVuelo;
-
-	@PayloadRoot(namespace = "http://www.example.org/Aerolinea", localPart = "CancelarReservacionRequest")
-	
-	@ResponsePayload
-	public CancelarReservacionResponse geCancelarReservacion(@RequestPayload CancelarReservacionRequest peticion) {
-		CancelarReservacionResponse respuesta = new CancelarReservacionResponse();
-		respuesta.setCancelado("Su reservacion del boleto: " + peticion.getBoleto() +  " ha sido cancelada");
-		return respuesta;
-	}
-	
-	@PayloadRoot(namespace = "http://www.example.org/Aerolinea", localPart = "ModificarDatosRequest")
-	
-	@ResponsePayload
-	public ModificarDatosResponse geModificarReservacion(@RequestPayload ModificarDatosRequest peticion) {
-		ModificarDatosResponse respuesta = new ModificarDatosResponse();
-		respuesta.setDatosmodificados("Sus datos del boleto: " + peticion.getBoleto() + " han sido modificados con exito");
-		return respuesta;
-	}
 	
 	@PayloadRoot(namespace = "http://www.example.org/Aerolinea", localPart = "ReservarVueloRequest")
 	
 	@ResponsePayload
 	public ReservarVueloResponse geReservarVuelo(@RequestPayload ReservarVueloRequest peticion) {
 		ReservarVueloResponse respuesta = new ReservarVueloResponse();
+		
 		respuesta.setConfirmar("El nombre del pasajero es: " + peticion.getPasajero() 
 		+ " El lugar de salida es: " + peticion.getSalida() 
 		+ " El destino seleccionado es: " + peticion.getDestino()
@@ -52,6 +35,7 @@ public class EndPoint {
 		+ " Su asiento seleccionado es el: " + peticion.getAsiento()
 		+ " El numero de su boleto es: " + peticion.getBoleto());
 		
+		//INSERTAR EN LA BASE DE DATOS
 		ReservarVuelo reservarVuelo = new ReservarVuelo();
 		reservarVuelo.setPasajero(peticion.getPasajero());
 		reservarVuelo.setSalida(peticion.getSalida());
@@ -62,6 +46,16 @@ public class EndPoint {
 		reservarVuelo.setBoleto(peticion.getBoleto());
 		
 		iReservarVuelo.save(reservarVuelo);
+		
+		return respuesta;
+	}
+	
+	@PayloadRoot(namespace = "http://www.example.org/Aerolinea", localPart = "CancelarReservacionRequest")
+	
+	@ResponsePayload
+	public CancelarReservacionResponse geCancelarReservacion(@RequestPayload CancelarReservacionRequest peticion) {
+		CancelarReservacionResponse respuesta = new CancelarReservacionResponse();
+		respuesta.setCancelado("Su reservacion del boleto: " + peticion.getBoleto() +  " ha sido cancelada");
 		
 		return respuesta;
 	}

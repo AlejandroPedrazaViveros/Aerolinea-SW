@@ -1,42 +1,105 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema xmlns="http://www.w3.org/2001/XMLSchema" 
-	targetNamespace="http://www.example.org/Aerolinea" 
-	xmlns:tns="http://www.example.org/Aerolinea" 
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.example.org/Aerolinea"
+	xmlns:tns="http://www.example.org/Aerolinea"
 	elementFormDefault="qualified">
 
-	<element name="ReservarVueloRequest">
-          <complexType>
-            <sequence>
-              <element type="string" name="pasajero"/>
-              <element type="string" name="salida"/>
-              <element type="string" name="destino"/>
-              <element type="string" name="fecha"/>
-              <element type="string" name="hora"/>
-              <element type="string" name="asiento"/>
-              <element type="int" name="boleto"/>
-            </sequence>
-          </complexType>
-        </element>
-        <element name="ReservarVueloResponse">
-          <complexType>
-            <sequence>
-              <element type="string" name="confirmar"/>
-            </sequence>
-          </complexType>
-        </element>
-        <element name="CancelarReservacionRequest">
-          <complexType>
-            <sequence>
-              <element type="int" name="boleto"/>
-            </sequence>
-          </complexType>
-        </element>
-        <element name="CancelarReservacionResponse">
-          <complexType>
-            <sequence>
-              <element type="string" name="cancelado"/>
-            </sequence>
-          </complexType>
-        </element>
+	<element name="ConsultarViajeRequest">
+		<complexType>
+			<sequence>
+				<element name="origen" type="string" />
+				<element name="destino" type="string" />
+				<element name="fecha" type="string" />
+			</sequence>
+		</complexType>
+	</element>
 	
+	<element name="ConsultarViajeResponse">
+		<complexType>
+			<sequence>
+				<element name="viaje" maxOccurs="unbounded">
+					<complexType>
+						<sequence>
+							<element name="idViaje" type="string" />
+							<element name="hora" type="string" />
+							<element name="precio" type="int" />
+						</sequence>
+					</complexType>
+				</element>
+			</sequence>
+		</complexType>
+	</element>
+	
+	<element name="SeleccionarViajeRequest">
+		<complexType>
+			<sequence>
+				<element name="idViaje" type="string" />
+			</sequence>
+		</complexType>
+	</element>
+	
+	<element name="SeleccionarViajeResponse">
+		<complexType>
+			<sequence>
+				<element name="idViaje" type="string" />
+				<element name="asiento" maxOccurs="unbounded">
+					<complexType>
+						<sequence>
+							<element type="int" name="idAsiento" />
+						</sequence>
+					</complexType>
+				</element>
+			</sequence>
+		</complexType>
+	</element>
+	
+	<element name="SeleccionarAsientoRequest">
+		<complexType>
+			<sequence>
+				<element name="idViaje" type="string" />
+				<element name="asiento" type="int" />
+				<element name="pasajero" type="string" />
+				<element name="Cliente" type="string" />
+			</sequence>
+		</complexType>
+	</element>
+	
+	<element name="SeleccionarAsientoResponse">
+		<complexType>
+			<sequence>
+				<element name="Boleto" maxOccurs="1">
+					<complexType>
+						<sequence>
+							<element name="idBoleto" type="int" />
+							<element name="origen" type="string" />
+							<element name="destino" type="string" />
+							<element name="fecha" type="string" />
+							<element name="hora" type="string" />
+							<element name="precio" type="int" />
+							<element name="pasajero" type="string" />
+							<element name="asiento" type="int" />
+						</sequence>
+					</complexType>
+				</element>
+			</sequence>
+		</complexType>
+	</element>
+	
+	<element name="CancelarBoletoRequest">
+		<complexType>
+			<sequence>
+				<element name="idBoleto" type="int" />
+				<element name="Cliente" type="string" />
+			</sequence>
+		</complexType>
+	</element>
+	
+	<element name="CancelarBoletoResponse">
+		<complexType>
+			<sequence>
+				<element name="checkout" type="boolean" />
+			</sequence>
+		</complexType>
+	</element>
+
 </schema>

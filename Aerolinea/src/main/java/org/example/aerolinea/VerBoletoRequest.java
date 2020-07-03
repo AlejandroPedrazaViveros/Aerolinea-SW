@@ -10,6 +10,7 @@ package org.example.aerolinea;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -24,7 +25,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="checkout" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
+ *         &lt;element name="Cliente" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -35,27 +36,36 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "checkout"
+    "cliente"
 })
-@XmlRootElement(name = "CancelarBoletoResponse")
-public class CancelarBoletoResponse {
+@XmlRootElement(name = "VerBoletoRequest")
+public class VerBoletoRequest {
 
-    protected boolean checkout;
+    @XmlElement(name = "Cliente", required = true)
+    protected String cliente;
 
     /**
-     * Obtiene el valor de la propiedad checkout.
+     * Obtiene el valor de la propiedad cliente.
      * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    public boolean isCheckout() {
-        return checkout;
+    public String getCliente() {
+        return cliente;
     }
 
     /**
-     * Define el valor de la propiedad checkout.
+     * Define el valor de la propiedad cliente.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
-    public void setCheckout(boolean value) {
-        this.checkout = value;
+    public void setCliente(String value) {
+        this.cliente = value;
     }
 
 }

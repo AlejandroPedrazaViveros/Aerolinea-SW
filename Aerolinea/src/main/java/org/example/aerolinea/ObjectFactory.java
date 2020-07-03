@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.2.7 
 // Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2020.07.02 a las 07:07:05 PM CDT 
+// Generado el: 2020.07.03 a las 02:34:09 PM CDT 
 //
 
 
@@ -45,6 +45,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link VerBoletoResponse }
+     * 
+     */
+    public VerBoletoResponse createVerBoletoResponse() {
+        return new VerBoletoResponse();
+    }
+
+    /**
      * Create an instance of {@link SeleccionarViajeResponse }
      * 
      */
@@ -74,6 +82,14 @@ public class ObjectFactory {
      */
     public ConsultarViajeResponse.Viaje createConsultarViajeResponseViaje() {
         return new ConsultarViajeResponse.Viaje();
+    }
+
+    /**
+     * Create an instance of {@link VerBoletoResponse.Boleto }
+     * 
+     */
+    public VerBoletoResponse.Boleto createVerBoletoResponseBoleto() {
+        return new VerBoletoResponse.Boleto();
     }
 
     /**
@@ -122,6 +138,14 @@ public class ObjectFactory {
      */
     public CancelarBoletoResponse createCancelarBoletoResponse() {
         return new CancelarBoletoResponse();
+    }
+
+    /**
+     * Create an instance of {@link VerBoletoRequest }
+     * 
+     */
+    public VerBoletoRequest createVerBoletoRequest() {
+        return new VerBoletoRequest();
     }
 
 }

@@ -51,7 +51,7 @@ public class AsientoController {
 	public ArrayList<Asientos> consultarAsientos(String idViaje) {
 		ArrayList<Asientos> encontrados = new ArrayList<Asientos>();
 		try {
-			sql = "SELECT * FROM Asientos WHERE idViaje='" + idViaje + "' AND estatus='1'";
+			sql = "SELECT * FROM asientos WHERE idViaje='" + idViaje + "' AND estatus='1'";
 			ResultSet rs = conexion.getConexion().createStatement().executeQuery(sql);
 			while (rs.next()) {
 				encontrados.add(new Asientos(rs.getInt("idAsiento"),rs.getString("idViaje"),rs.getInt("idBoleto"),rs.getInt("Asiento"),rs.getInt("Estatus")));
@@ -65,7 +65,7 @@ public class AsientoController {
 
 	public boolean ocuparAsiento(String idViaje, int idBoleto, int asiento) {
 		try {
-			sql = "UPDATE Asientos SET estatus='0', idBoleto='" + idBoleto + "' WHERE idViaje='" + idViaje + "' AND Asiento='"+ asiento+"'";
+			sql = "UPDATE asientos SET estatus='0', idBoleto='" + idBoleto + "' WHERE idViaje='" + idViaje + "' AND Asiento='"+ asiento+"'";
 			conexion.getConexion().createStatement().execute(sql);
 			return true;
 		} catch (SQLException e) {
@@ -76,7 +76,7 @@ public class AsientoController {
 
 	public boolean desocuparAsiento(int idBoleto) {
 		try {
-			sql = "UPDATE Asientos SET estatus='1', idBoleto=null WHERE idBoleto='" + idBoleto + "'";
+			sql = "UPDATE asientos SET estatus='1', idBoleto=null WHERE idBoleto='" + idBoleto + "'";
 			conexion.getConexion().createStatement().execute(sql);
 			return true;
 		} catch (SQLException e) {

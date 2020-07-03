@@ -13,7 +13,7 @@
 			</sequence>
 		</complexType>
 	</element>
-	
+
 	<element name="ConsultarViajeResponse">
 		<complexType>
 			<sequence>
@@ -29,7 +29,7 @@
 			</sequence>
 		</complexType>
 	</element>
-	
+
 	<element name="SeleccionarViajeRequest">
 		<complexType>
 			<sequence>
@@ -37,7 +37,7 @@
 			</sequence>
 		</complexType>
 	</element>
-	
+
 	<element name="SeleccionarViajeResponse">
 		<complexType>
 			<sequence>
@@ -52,7 +52,7 @@
 			</sequence>
 		</complexType>
 	</element>
-	
+
 	<element name="SeleccionarAsientoRequest">
 		<complexType>
 			<sequence>
@@ -63,7 +63,7 @@
 			</sequence>
 		</complexType>
 	</element>
-	
+
 	<element name="SeleccionarAsientoResponse">
 		<complexType>
 			<sequence>
@@ -84,7 +84,36 @@
 			</sequence>
 		</complexType>
 	</element>
-	
+
+	<element name="VerBoletoRequest">
+		<complexType>
+			<sequence>
+				<element name="Cliente" type="string" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="VerBoletoResponse">
+		<complexType>
+			<sequence>
+				<element name="Boleto" maxOccurs="1">
+					<complexType>
+						<sequence>
+							<element name="idBoleto" type="int" />
+							<element name="origen" type="string" />
+							<element name="destino" type="string" />
+							<element name="fecha" type="string" />
+							<element name="hora" type="string" />
+							<element name="precio" type="int" />
+							<element name="pasajero" type="string" />
+							<element name="asiento" type="int" />
+						</sequence>
+					</complexType>
+				</element>
+			</sequence>
+		</complexType>
+	</element>
+
 	<element name="CancelarBoletoRequest">
 		<complexType>
 			<sequence>
@@ -93,7 +122,7 @@
 			</sequence>
 		</complexType>
 	</element>
-	
+
 	<element name="CancelarBoletoResponse">
 		<complexType>
 			<sequence>

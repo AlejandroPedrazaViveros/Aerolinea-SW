@@ -55,21 +55,21 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "", propOrder = {
     "boleto"
 })
-@XmlRootElement(name = "SeleccionarAsientoResponse")
-public class SeleccionarAsientoResponse {
+@XmlRootElement(name = "VerBoletoResponse")
+public class VerBoletoResponse {
 
     @XmlElement(name = "Boleto", required = true)
-    protected SeleccionarAsientoResponse.Boleto boleto;
+    protected VerBoletoResponse.Boleto boleto;
 
     /**
      * Obtiene el valor de la propiedad boleto.
      * 
      * @return
      *     possible object is
-     *     {@link SeleccionarAsientoResponse.Boleto }
+     *     {@link VerBoletoResponse.Boleto }
      *     
      */
-    public SeleccionarAsientoResponse.Boleto getBoleto() {
+    public VerBoletoResponse.Boleto getBoleto() {
         return boleto;
     }
 
@@ -78,10 +78,10 @@ public class SeleccionarAsientoResponse {
      * 
      * @param value
      *     allowed object is
-     *     {@link SeleccionarAsientoResponse.Boleto }
+     *     {@link VerBoletoResponse.Boleto }
      *     
      */
-    public void setBoleto(SeleccionarAsientoResponse.Boleto value) {
+    public void setBoleto(VerBoletoResponse.Boleto value) {
         this.boleto = value;
     }
 

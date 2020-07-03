@@ -71,7 +71,7 @@ public class ViajeController {
 	public Viajes getDatosViaje(String idViaje) {
 		Viajes viaje = new Viajes();
 		try {
-			sql = "SELECT * FROM Viajes WHERE idViaje='" + idViaje + "'";
+			sql = "SELECT * FROM viajes WHERE idViaje='" + idViaje + "'";
 			rs = conexion.getConexion().createStatement().executeQuery(sql);
 			if (rs.next()) {
 				viaje.setIdViaje(rs.getString("idViaje"));

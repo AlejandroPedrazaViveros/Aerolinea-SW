@@ -7,9 +7,9 @@ import java.sql.SQLException;
 public class ConexionBD {
     
     private final String base = "aerolinea";
-    private final String user = "root";
-    private final String password = "mysql";
-    private final String url = "jdbc:mysql://localhost:3306/" + base + "?useTimezone=true&serverTimezone=UTC&useSSL=false";
+    private final String user = "admiAero2";
+    private final String password = "robin123";
+    private final String url = "jdbc:mysql://3.83.221.54:3306/" + base + "?useTimezone=true&serverTimezone=UTC&useSSL=false";
     private Connection Conexion = null;
 
     public Connection getConexion() {

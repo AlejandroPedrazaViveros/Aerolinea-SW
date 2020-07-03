@@ -17,6 +17,9 @@ import org.example.aerolinea.SeleccionarAsientoRequest;
 import org.example.aerolinea.SeleccionarAsientoResponse;
 import org.example.aerolinea.SeleccionarViajeRequest;
 import org.example.aerolinea.SeleccionarViajeResponse;
+import org.example.aerolinea.VerBoletoRequest;
+import org.example.aerolinea.VerBoletoResponse;
+
 import java.util.ArrayList;
 
 @org.springframework.ws.server.endpoint.annotation.Endpoint
@@ -90,6 +93,30 @@ public class Endpoint {
 		return respuesta;
 	}
 
+	@PayloadRoot(namespace = "http://www.example.org/Aerolinea", localPart = "VerBoletoRequest")
+	@ResponsePayload
+	public VerBoletoResponse getVerBoleto(@RequestPayload VerBoletoRequest peticion) {
+		VerBoletoResponse respuesta = new VerBoletoResponse();
+
+		BoletoController bc = new BoletoController();
+		Boletos boleto = bc.verBoleto(peticion.getCliente());
+		VerBoletoResponse.Boleto bol = new VerBoletoResponse.Boleto();
+		if (boleto != null) {
+			bol.setIdBoleto(boleto.getIdBoleto());
+			bol.setOrigen(boleto.getOrigen());
+			bol.setDestino(boleto.getDestino());
+			bol.setFecha(boleto.getFecha());
+			bol.setHora(boleto.getHora());
+			bol.setPrecio(boleto.getPrecio());
+			bol.setPasajero(boleto.getPasajero());
+			bol.setAsiento(boleto.getAsiento());
+			respuesta.setBoleto(bol);
+		} else {
+			respuesta.setBoleto(null);
+		}
+		return respuesta;
+	}
+	
 	@PayloadRoot(namespace = "http://www.example.org/Aerolinea", localPart = "CancelarBoletoRequest")
 	@ResponsePayload
 	public CancelarBoletoResponse getCancelarBoleto(@RequestPayload CancelarBoletoRequest peticion) {
